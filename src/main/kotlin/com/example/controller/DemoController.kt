@@ -19,6 +19,6 @@ class DemoController {
 
     @Post("/send")
     fun postDemo(@Body @Valid request: DemoRequest): Any {
-        return request
+        return request.toDemo()
     }
 }

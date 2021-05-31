@@ -10,4 +10,6 @@ data class DemoRequest(
     @field:NotBlank val name: String,
     @field:NotBlank @field:Email val email: String,
     @field:Size(max = 10) val password: String
-)
+) {
+    fun toDemo(): Demo = Demo(name, email, password)
+}
