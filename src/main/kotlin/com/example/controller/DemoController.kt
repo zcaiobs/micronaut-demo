@@ -14,7 +14,7 @@ class DemoController {
 
     @Get("/hello")
     fun getDemo() : String {
-        return "Carlos"
+        return "Hello World"
     }
 
     @Post("/send")
