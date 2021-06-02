@@ -2,7 +2,7 @@ package com.example.domain
 
 import java.time.LocalDate
 
-class DemoResponse(private val demo: Demo) {
+class DemoResponse(demo: Demo) {
     val id: Long? = demo.id
     val name: String = demo.name
     val email: String = demo.email
