@@ -1,3 +1,21 @@
 micronaut:
   application:
     name: demo
+  data:
+    pageable:
+      default-page-size: 5
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/apidatabase?createDatabaseIfNotExist=true
+    username: root
+    password: root
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+

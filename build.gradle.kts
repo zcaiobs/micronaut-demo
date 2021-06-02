@@ -9,7 +9,7 @@ plugins {
 version = "0.1"
 group = "com.example"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion= project.properties["kotlinVersion"]
 repositories {
     mavenCentral()
 }
@@ -24,6 +24,9 @@ micronaut {
 }
 
 dependencies {
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:2.4.3")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari:3.4.0")
+    implementation("mysql:mysql-connector-java:8.0.25")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
