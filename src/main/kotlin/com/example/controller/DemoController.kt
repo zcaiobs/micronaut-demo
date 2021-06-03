@@ -19,6 +19,7 @@ import io.micronaut.validation.Validated
 import io.micronaut.web.router.UriRoute
 import java.net.URI
 import java.security.URIParameter
+import java.util.*
 import java.util.function.BiConsumer
 import javax.validation.Valid
 
@@ -28,7 +29,13 @@ class DemoController(val demoRepository: DemoRepository) {
 
     @Get("/demo")
     fun getDemo(pageable: Pageable): HttpResponse<Page<Demo>>? {
-        return HttpResponse.ok(demoRepository.findAll(pageable.order(Sort.Order.asc("id"))))
+        return HttpResponse.ok(demoRepository.findAll(pageable.order(Sort.Order.desc("id"))))
+    }
+
+    @Get("/demo/unit")
+    fun getDemoUnit(): HttpResponse<Demo> {
+        val demo = demoRepository.findById(1).get()
+        return HttpResponse.ok(demo)
     }
 
     @Post("/demo")
