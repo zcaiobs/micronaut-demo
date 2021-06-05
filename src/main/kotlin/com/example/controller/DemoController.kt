@@ -4,6 +4,7 @@ import com.example.domain.Demo
 import com.example.domain.DemoRequest
 import com.example.domain.DemoResponse
 import com.example.repository.DemoRepository
+import com.example.util.DemoService
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import io.micronaut.data.model.Sort
@@ -25,17 +26,17 @@ import javax.validation.Valid
 
 @Validated
 @Controller("/api")
-class DemoController(val demoRepository: DemoRepository) {
+class DemoController(val demoRepository: DemoRepository, val demoService: DemoService) {
 
     @Get("/demo")
     fun getDemo(pageable: Pageable): HttpResponse<Page<Demo>>? {
         return HttpResponse.ok(demoRepository.findAll(pageable.order(Sort.Order.desc("id"))))
     }
 
-    @Get("/demo/unit")
-    fun getDemoUnit(): HttpResponse<Demo> {
-        val demo = demoRepository.findById(1).get()
-        return HttpResponse.ok(demo)
+    @Get("/demo/service")
+    fun getDemoUnit(): HttpResponse<String> {
+        val result = demoService.returnServiceThing()
+        return HttpResponse.ok(result)
     }
 
     @Post("/demo")

@@ -41,6 +41,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.micronaut.test:micronaut-test-junit5:2.3.6")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+    testImplementation("org.mockito:mockito-core")
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
